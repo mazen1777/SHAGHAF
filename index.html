@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHAGHAF | شغف</title>
+<style>
+:root{--navy:#101b35;--navy2:#172747;--gold:#d7ad58;--gold2:#f0d69a;--ink:#172033;--muted:#718096;--bg:#f5f7fb;--line:#e7ebf2;--white:#fff;--green:#1d9a72}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Tahoma,Arial,sans-serif;color:var(--ink)}button,input{font:inherit}button{cursor:pointer}
+.top{background:var(--navy);color:#fff;padding:15px max(5vw,20px);display:flex;align-items:center;justify-content:space-between;gap:20px;position:sticky;top:0;z-index:5;box-shadow:0 5px 22px #0c183022}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:22px;letter-spacing:1px}.logo{width:38px;height:38px;border:2px solid var(--gold);border-radius:12px;display:grid;place-items:center;color:var(--gold);font-weight:900}
+nav{display:flex;gap:25px;align-items:center}nav a{color:#d9e0ed;text-decoration:none;font-size:14px;cursor:pointer}nav a.active,nav a:hover{color:var(--gold2)}
+.actions{display:flex;gap:10px;align-items:center}.btn{border:0;border-radius:11px;padding:11px 17px;font-weight:700}
+.actions .btn{font-size:12px;padding:9px 13px;border-radius:9px}.btn-gold{background:var(--gold);color:var(--navy)}.btn-outline{background:transparent;border:1px solid #ffffff55;color:#fff}
+.wrap{max-width:1180px;margin:auto;padding:30px 22px 70px}.hero{background:linear-gradient(120deg,#101b35,#20365d);border-radius:25px;padding:42px;color:white;display:grid;grid-template-columns:1.35fr .65fr;gap:25px;overflow:hidden;position:relative}
+.eyebrow{color:var(--gold2);font-size:13px;font-weight:bold;letter-spacing:.5px}.hero h1{font-size:38px;line-height:1.45;margin:12px 0}.hero p{color:#d0d8e7;line-height:2;max-width:590px}.hero .btn{margin-top:10px;padding:14px 22px}
+.hero-art{display:grid;place-items:center;min-height:220px}.orbit{width:210px;height:210px;border:1px solid #d7ad5866;border-radius:50%;display:grid;place-items:center;position:relative}.orbit:before,.orbit:after{content:"";position:absolute;border:1px solid #d7ad5844;border-radius:50%;inset:20px}.orbit:after{inset:42px}.book{width:105px;height:130px;background:linear-gradient(145deg,#f0d69a,#b9842e);border-radius:9px 14px 14px 9px;box-shadow:14px 14px 0 #0a1428;display:grid;place-items:center;color:#14213c;font-size:23px;font-weight:900;transform:rotate(-8deg)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0}.stat{background:white;border:1px solid var(--line);border-radius:16px;padding:17px 20px}.stat b{display:block;font-size:22px;color:var(--navy);margin-bottom:5px}.stat span{color:var(--muted);font-size:13px}
+.section-head{display:flex;justify-content:space-between;align-items:end;margin:34px 0 17px}.section-head h2{margin:0;font-size:23px;color:var(--navy)}.section-head p{margin:7px 0 0;color:var(--muted);font-size:13px}.link{color:#9b742d;font-weight:bold;font-size:13px;cursor:pointer}
+.filters{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:17px}.chip{background:white;border:1px solid var(--line);border-radius:30px;padding:9px 16px;color:#58657a;font-size:13px}.chip.selected{background:var(--navy);color:white;border-color:var(--navy)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.course{background:white;border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:.2s;cursor:pointer}.course:hover{transform:translateY(-4px);box-shadow:0 12px 28px #17274712}.cover{height:145px;padding:18px;display:flex;align-items:end;justify-content:space-between;color:white;background:linear-gradient(135deg,#293e68,#111c37)}.cover.gold{background:linear-gradient(135deg,#d9b96f,#87632c)}.cover.teal{background:linear-gradient(135deg,#2d7b79,#183b50)}.cover.purple{background:linear-gradient(135deg,#7563a6,#292d55)}.cover .subject{font-size:12px;background:#ffffff25;padding:7px 10px;border-radius:20px}.cover .symbol{font-size:35px;font-weight:bold;opacity:.9}.course-body{padding:16px}.course h3{font-size:17px;margin:0 0 8px;color:var(--navy)}.teacher{font-size:12px;color:var(--muted)}.meta{display:flex;justify-content:space-between;margin:16px 0 12px;color:#718096;font-size:12px}.price{font-size:19px;font-weight:900;color:#a77b2f}.old{font-size:12px;color:#9aa4b3;text-decoration:line-through;margin-right:5px}.course-foot{border-top:1px solid var(--line);padding-top:12px;display:flex;justify-content:space-between;align-items:center}
+.banners{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:30px}.banner{padding:22px;border-radius:17px;background:#fff;border:1px solid var(--line)}.banner h3{margin:0 0 8px;color:var(--navy)}.banner p{font-size:13px;color:var(--muted);line-height:1.8;margin:0}
+footer{background:var(--navy);color:#b9c4d6;padding:28px 5vw;text-align:center;font-size:12px}
+.screen{display:none}.screen.active{display:block}
+.detail{background:white;border:1px solid var(--line);border-radius:20px;overflow:hidden}.detail-hero{background:linear-gradient(120deg,#101b35,#304b76);color:white;padding:35px}.detail-hero h1{margin:12px 0}.detail-content{display:grid;grid-template-columns:1.5fr .7fr;gap:25px;padding:25px}.panel{border:1px solid var(--line);border-radius:15px;padding:18px;margin-bottom:15px}.panel h3{margin:0 0 12px;color:var(--navy)}.panel p,.panel li{color:#657187;line-height:2;font-size:14px}.buybox{background:#fbfcff;border:1px solid var(--line);border-radius:15px;padding:20px;height:max-content}.buybox .price{font-size:27px}.buybox .btn{width:100%;margin-top:12px}
+.loginbox{max-width:460px;margin:35px auto;background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px}.loginbox h2{color:var(--navy);margin-top:0}.field{margin:15px 0}.field label{display:block;font-size:13px;margin-bottom:7px;color:#59667b}.field input{width:100%;padding:13px;border:1px solid var(--line);border-radius:10px;outline:none}.field input:focus{border-color:var(--gold)}
+.dash-head{background:var(--navy);color:white;border-radius:18px;padding:25px;margin-bottom:20px}.dash-head p{color:#c4cee0}.progress{height:8px;background:#e8edf4;border-radius:9px;overflow:hidden;margin-top:10px}.progress span{display:block;height:100%;width:62%;background:var(--gold)}
+.toast{position:fixed;bottom:20px;left:20px;background:#172747;color:white;padding:13px 18px;border-radius:12px;box-shadow:0 8px 30px #0002;display:none;z-index:10}
+.mobilebar{display:none}
+@media(max-width:800px){nav{display:none}.top{padding:12px 16px}.wrap{padding:18px 14px 90px}.hero{grid-template-columns:1fr;padding:27px}.hero h1{font-size:29px}.hero-art{display:none}.stats{gap:8px}.stat{padding:13px}.stat b{font-size:18px}.grid{grid-template-columns:1fr 1fr;gap:10px}.cover{height:115px}.course-body{padding:12px}.course h3{font-size:14px}.banners{grid-template-columns:1fr}.detail-content{grid-template-columns:1fr;padding:15px}.mobilebar{display:flex;position:fixed;bottom:0;right:0;left:0;background:white;border-top:1px solid var(--line);justify-content:space-around;padding:10px 5px;z-index:8}.mobilebar button{border:0;background:none;color:#68758a;font-size:11px}.mobilebar button.active{color:#a77b2f;font-weight:bold}}
+@media(max-width:430px){.grid{grid-template-columns:1fr 1fr}.course .meta{font-size:10px}.price{font-size:16px}.old{display:none}.hero h1{font-size:25px}}
+</style>
+</head>
+<body>
+<header class="top">
+ <div class="brand"><div class="logo">ش</div><span>SHAGHAF</span></div>
+ <nav><a class="active" data-go="home">الرئيسية</a><a data-go="courses">الكورسات</a><a data-go="dashboard">تعلماتي</a><a data-go="teachers">للمدرسين</a></nav>
+ <div class="actions"><button class="btn btn-outline" onclick="go('login')">دخول</button><button class="btn btn-gold" onclick="go('login')">إنشاء حساب</button></div>
+</header>
+<main class="wrap">
+<section id="home" class="screen active">
+ <div class="hero">
+  <div><div class="eyebrow">طريقك للتعلم يبدأ من هنا</div><h1>اتعلم بشغف،<br>وحقق اللي بتحلم بيه.</h1><p>مكان واحد يجمعلك الكورسات والمدرسين في مختلف المراحل والتخصصات. اختار طريقك وابدأ رحلتك التعليمية.</p><button class="btn btn-gold" onclick="go('courses')">اكتشف الكورسات ←</button></div>
+  <div class="hero-art"><div class="orbit"><div class="book">SH<br>غف</div></div></div>
+ </div>
+ <div class="stats"><div class="stat"><b>كل المراحل</b><span>من الابتدائي للجامعة</span></div><div class="stat"><b>مدرسين متميزين</b><span>محتوى منظم وواضح</span></div><div class="stat"><b>تعلم في وقتك</b><span>تابع من أي مكان</span></div></div>
+ <div class="section-head"><div><h2>كورسات مختارة ليك</h2><p>ابدأ بأقوى الكورسات المتاحة</p></div><a class="link" onclick="go('courses')">عرض الكل ←</a></div>
+ <div class="grid" id="homeCourses"></div>
+ <div class="banners"><div class="banner"><h3>👨‍🏫 أنت مدرس؟</h3><p>اعرض كورساتك على شغف، ووصل لطلاب أكتر من خلال منصة منظمة.</p></div><div class="banner"><h3>🎯 خطوتك الجاية تبدأ هنا</h3><p>اختار المادة والمستوى المناسب ليك، وخلي التعلم عادة مستمرة.</p></div></div>
+</section>
+<section id="courses" class="screen">
+ <div class="section-head"><div><h2>كل الكورسات</h2><p>اختار المرحلة والمادة اللي بتدور عليها</p></div></div>
+ <div class="filters"><button class="chip selected" onclick="filterCourses('الكل',this)">الكل</button><button class="chip" onclick="filterCourses('ثانوي',this)">ثانوي</button><button class="chip" onclick="filterCourses('إعدادي',this)">إعدادي</button><button class="chip" onclick="filterCourses('جامعة',this)">جامعة</button><button class="chip" onclick="filterCourses('ابتدائي',this)">ابتدائي</button></div>
+ <div class="grid" id="allCourses"></div>
+</section>
+<section id="courseDetail" class="screen">
+ <div class="detail"><div class="detail-hero"><div class="eyebrow">تفاصيل الكورس</div><h1 id="dTitle">مراجعة شاملة في الأحياء</h1><div id="dTeacher">مع أ/ أحمد محمد</div></div>
+ <div class="detail-content"><div><div class="panel"><h3>عن الكورس</h3><p>شرح منظم للمحتوى مع أمثلة وتدريبات تساعدك تفهم وتراجع خطوة بخطوة. تقدر تتابع الدروس حسب وقتك وتراجع المحتوى المسجل.</p></div><div class="panel"><h3>محتوى الكورس</h3><ul><li>مقدمة وتأسيس في المادة</li><li>شرح الوحدات والدروس بالتدريج</li><li>تدريبات وأسئلة على كل جزء</li><li>مراجعة نهائية شاملة</li></ul></div><div class="panel"><h3>مناسب لمين؟</h3><p>للطلاب اللي عايزين تنظيم مذاكرتهم وفهم المنهج ومتابعة تقدمهم.</p></div></div>
+ <aside class="buybox"><div class="price" id="dPrice">450 ج.م</div><p style="color:#718096;font-size:12px">وصول للكورس بعد إتمام التسجيل والشراء</p><button class="btn btn-gold" onclick="toast('دي تجربة شكلية — الدفع غير مفعل في النموذج')">اشترك في الكورس</button><button class="btn" style="background:#eef1f6;color:#172747;width:100%;margin-top:9px" onclick="go('login')">سجل الدخول</button></aside></div></div>
+ <p style="margin-top:18px"><a class="link" onclick="go('courses')">← الرجوع للكورسات</a></p>
+</section>
+<section id="login" class="screen">
+ <div class="loginbox"><div class="brand" style="color:var(--navy);margin-bottom:22px"><div class="logo">ش</div><span>SHAGHAF</span></div><h2>أهلاً بيك في شغف</h2><p style="color:#718096;font-size:13px">سجل دخولك عشان تتابع رحلتك التعليمية.</p><div class="field"><label>البريد الإلكتروني أو رقم الموبايل</label><input placeholder="example@email.com"></div><div class="field"><label>كلمة المرور</label><input type="password" placeholder="••••••••"></div><button class="btn btn-gold" style="width:100%" onclick="toast('نموذج تجريبي — تسجيل الدخول غير مربوط بعد')">تسجيل الدخول</button><p style="text-align:center;font-size:12px;color:#718096;margin-top:18px">لسه معندكش حساب؟ <a class="link" onclick="toast('إنشاء الحساب هيتم تفعيله في المرحلة التالية')">إنشاء حساب جديد</a></p></div>
+</section>
+<section id="dashboard" class="screen">
+ <div class="dash-head"><div class="eyebrow">مساحتك التعليمية</div><h2>أهلاً بيك في شغف 👋</h2><p>تابع كورساتك وكمل من آخر مكان وصلتله.</p></div>
+ <div class="section-head"><div><h2>كورساتي</h2><p>هنا هتلاقي الكورسات اللي اشتركت فيها</p></div></div>
+ <div class="panel"><h3>مفيش كورسات مضافة لحسابك لسه</h3><p>لما تشترك في كورس، هتقدر تتابع الدروس ونسبة تقدمك من هنا.</p><button class="btn btn-gold" onclick="go('courses')">تصفح الكورسات</button></div>
+</section>
+<section id="teachers" class="screen">
+ <div class="hero"><div><div class="eyebrow">انضم لعائلة شغف</div><h1>خلّي علمك يوصل لطلاب أكتر.</h1><p>اعرض كورساتك، نظم محتواك، وتابع مبيعاتك من خلال مساحة مخصصة للمدرسين.</p><button class="btn btn-gold" onclick="toast('نموذج انضمام المدرسين سيتم تفعيله لاحقاً')">قدّم كمدرس</button></div><div class="hero-art"><div class="orbit"><div class="book">TEACH</div></div></div></div>
+ <div class="banners"><div class="banner"><h3>لوحة تحكم للمدرس</h3><p>إدارة الكورسات والدروس ومتابعة الطلاب.</p></div><div class="banner"><h3>نظام عمولات واضح</h3><p>اتفاق واضح على نسبة المنصة ومستحقات المدرس.</p></div></div>
+</section>
+</main>
+<footer>SHAGHAF © 2026 — اتعلم بشغف، وحقق اللي بتحلم بيه.</footer>
+<div class="mobilebar"><button class="active" data-go="home">⌂<br>الرئيسية</button><button data-go="courses">▤<br>الكورسات</button><button data-go="dashboard">▣<br>تعلماتي</button><button data-go="teachers">♙<br>للمدرسين</button></div>
+<div class="toast" id="toast"></div>
+<script>
+const courses=[
+ {title:'مراجعة شاملة في الأحياء',teacher:'أ/ أحمد محمد',level:'ثانوي',subject:'أحياء',price:'450',old:'600',color:'',symbol:'BIO'},
+ {title:'أساسيات الكيمياء',teacher:'أ/ سارة علي',level:'ثانوي',subject:'كيمياء',price:'390',old:'500',color:'gold',symbol:'CH'},
+ {title:'الرياضيات من الصفر',teacher:'أ/ عمر خالد',level:'إعدادي',subject:'رياضيات',price:'300',old:'',color:'teal',symbol:'∑'},
+ {title:'مدخل إلى البرمجة',teacher:'م/ يوسف حسن',level:'جامعة',subject:'برمجة',price:'550',old:'700',color:'purple',symbol:'</>'},
+ {title:'اللغة الإنجليزية للأطفال',teacher:'أ/ منى سمير',level:'ابتدائي',subject:'إنجليزي',price:'250',old:'',color:'teal',symbol:'ABC'},
+ {title:'فيزياء الثانوية ببساطة',teacher:'أ/ كريم عادل',level:'ثانوي',subject:'فيزياء',price:'420',old:'520',color:'',symbol:'PHY'}
+];
+function card(c){return `<article class="course" onclick="detail('${c.title}')"><div class="cover ${c.color}"><span class="subject">${c.level} · ${c.subject}</span><span class="symbol">${c.symbol}</span></div><div class="course-body"><h3>${c.title}</h3><div class="teacher">${c.teacher}</div><div class="meta"><span>▶ دروس مسجلة</span><span>♧ شهادة إتمام</span></div><div class="course-foot"><div><span class="price">${c.price} ج.م</span> ${c.old?`<span class="old">${c.old}</span>`:''}</div><span class="link">التفاصيل ←</span></div></div></article>`}
+document.getElementById('homeCourses').innerHTML=courses.slice(0,3).map(card).join('');
+document.getElementById('allCourses').innerHTML=courses.map(card).join('');
+function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('[data-go]').forEach(a=>a.classList.toggle('active',a.dataset.go===id));window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('[data-go]').forEach(a=>a.addEventListener('click',()=>go(a.dataset.go)));
+function detail(title){const c=courses.find(x=>x.title===title);document.getElementById('dTitle').textContent=c.title;document.getElementById('dTeacher').textContent='مع '+c.teacher;document.getElementById('dPrice').textContent=c.price+' ج.م';go('courseDetail')}
+function filterCourses(level,el){document.querySelectorAll('.chip').forEach(x=>x.classList.remove('selected'));el.classList.add('selected');document.getElementById('allCourses').innerHTML=courses.filter(c=>level==='الكل'||c.level===level).map(card).join('')||'<p>مفيش كورسات في التصنيف ده حالياً.</p>'}
+let timer;function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';clearTimeout(timer);timer=setTimeout(()=>t.style.display='none',2800)}
+</script>
+</body></html>
